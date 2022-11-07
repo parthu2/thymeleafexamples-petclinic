@@ -18,6 +18,16 @@ pipeline{
                     sh 'mvn clean package'
             }
         }
-          
+           stage('UNIT testing'){
+            
+            steps{
+                
+                script{
+                    
+                    sh 'mvn test'
+                }
+            }
+        }
+        
         }
      }   
