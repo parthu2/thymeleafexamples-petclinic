@@ -38,6 +38,29 @@ pipeline{
                 }
             }
         }
-        
+        stage('upload war file to nexus'){
+            
+            steps{
+                
+                script{
+                    nexusArtifactUploader artifacts: 
+                    [
+                      [
+                      artifactId: 'petclinic', 
+                      classifier: '', file: 'target/petclinic.war', 
+                      type: 'war'
+                      ]
+                      ], 
+                      credentialsId: 'nexus-auth', 
+                      groupId: 'thymeleafexamples', 
+                      nexusUrl: '18.189.3.71:8081', 
+                      nexusVersion: 'nexus3', 
+                      protocol: 'http', 
+                      repository: 'prmaven-release', 
+                      version: '1.0.0'
+                    
+                }
+            }
+        }
         }
      }   
