@@ -11,6 +11,15 @@ pipeline{
                    git branch: '2.1-master', url: 'git@github.com:parthu2/thymeleafexamples-petclinic.git'
                 }
             }
-       
+          
+          stage('UNIT testing'){
+            
+            steps{
+                
+                script{
+                    
+                    sh 'mvn test'
+                }
+            }
         }
      }   
