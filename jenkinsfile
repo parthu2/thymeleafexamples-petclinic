@@ -58,7 +58,7 @@ pipeline{
                       nexusVersion: 'nexus3', 
                       protocol: 'http', 
                       repository: 'prmaven-release', 
-                      version: '1.0.0'
+                      version: "${readPomVersion.version}"
                     
                 }
             }
